@@ -4,7 +4,8 @@ public class Test {
     public static void main(String[] args) {
         double appr;
 
-        ImplemPolynomial ip1=new ImplemPolynomial(); //Задаем полином: границы функции,степень,коэфф
+        ImplemPolynomial ip1=new ImplemPolynomial();
+        NewthonM nm= new NewthonM(ip1,0.01);//Задаем полином: границы функции,степень,коэфф
         try {
 
             ip1.getNumbers();// .
@@ -26,7 +27,7 @@ public class Test {
 
             //System.out.println(ip1.getLeft_a());
 
-            NewthonM nm= new NewthonM(ip1,0.01);
+            //NewthonM nm= new NewthonM(ip1,0.01);
 
             // ВЫВОД ЗНАЧ ФУНКЦИИ ЧЕРЕЗ ДОЧЕРНИЙ
             nm.checkUseFunction();

@@ -40,7 +40,7 @@ public class ImplemPolynomial implements polynomial {
     /*
     ImplemPolynomial() {
         System.out.println("Инициализация полинома...");
-        System.out.println("Введите интервал рассмотрения функции.");
+         System.out.println("Введите интервал рассмотрения функции.");
         Scanner scanner = new Scanner(System.in);
         this.left_a = scanner.nextDouble();
         this.right_b = scanner.nextDouble();

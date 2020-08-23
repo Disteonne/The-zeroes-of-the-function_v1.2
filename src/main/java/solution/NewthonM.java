@@ -16,6 +16,7 @@ public class NewthonM extends ImplemPolynomial{
     this.epsilon=epsilon;
     l_a=obj.getLeft_a();
     r_b=obj.getRight_b();
+    //иниц. n и c!!!
   }
 
   public void setEpsilon(double epsilon) {
