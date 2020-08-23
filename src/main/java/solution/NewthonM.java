@@ -3,18 +3,19 @@ package solution;
 import solution.ImplemPolynomial;
 
 public class NewthonM extends ImplemPolynomial{
-  private   double approx;
-  private   double left_a,right_b;
-  private   double res=0;
+  public    double approx;
+  private   double l_a,r_b;
+  private   double res;
   private   double epsilon;
   private  double error;
+  public double a,b;
 
 
   NewthonM(ImplemPolynomial obj,double epsilon){
-    super(obj.getLeft_a(),obj.getRight_b());
+    //super();
     this.epsilon=epsilon;
-    left_a=obj.getLeft_a();
-    right_b=obj.getRight_b();
+    l_a=obj.getLeft_a();
+    r_b=obj.getRight_b();
   }
 
   public void setEpsilon(double epsilon) {
@@ -24,25 +25,50 @@ public class NewthonM extends ImplemPolynomial{
   public double getEpsilon() {
     return epsilon;
   }
- /*
+
+  public double getL_a() {
+    return l_a;
+  }
+
+  public double getR_b() {
+    return r_b;
+  }
+  /*
  *      ВЫБОР НАЧАЛЬНОГО ПРИБЛИЖЕНИЯ
   */
-  double choiceApprox(){
-    if(getPolynomial(left_a)*getTwoDiffPolynomial(left_a)>0){
-      approx=left_a;
 
+  double choiceApprox(){
+    double a= getL_a();
+    double b= getR_b();
+
+    if((getPolynomial(a)*getTwoDiffPolynomial(a))>0){
+      approx=a;
     }
-    else if(getPolynomial(right_b)*getTwoDiffPolynomial(right_b)>0){
-      approx=right_b;
+   else if((getPolynomial(b)*getTwoDiffPolynomial(b))>0){
+     approx=b;
     }
-    return approx;
+   return approx;
   }
+
+
+  //     НЕ ВЫВОДИТ АППРОКСИМАЦИЮ,ПОЭТОМУ ВВЕДЕН МЕТОД СНИЗУ ДЛЯ ПРОВЕРКИ ВЫВОДА ЗНАЧЕНИЙ ФУНКЦИИ
+  void checkUseFunction(){
+    double c=getPolynomial(1);
+    double b=getOneDiffPolynomial(1);
+    double d=getTwoDiffPolynomial(1);
+    System.out.println(c);
+    System.out.println(b);
+    System.out.println(d);
+  }
+
+
+
 
  /*
  *      ПРОВЕРКА УСЛОВИЙ
   */
   boolean volidOne(){
-    for(double i=left_a;i<=right_b;i+=epsilon){
+    for(double i=1.8;i<=2.3;i+=epsilon){
       if(getOneDiffPolynomial(i)>0||getOneDiffPolynomial(i)<0 &&
               getTwoDiffPolynomial(i)>0 ||getTwoDiffPolynomial(i)<0){
         return true;
@@ -51,7 +77,7 @@ public class NewthonM extends ImplemPolynomial{
     return false;
   }
   boolean volidTwo(){
-    if(getPolynomial(left_a)*getPolynomial(right_b)<0){
+    if(getPolynomial(approx)*getPolynomial(approx)<0){
       return  true;
     }
     return  false;

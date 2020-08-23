@@ -1,7 +1,9 @@
 package solution;
 
 public interface function {
-    default double getPolynomial(double x) {
+    double getPolynomial(double x);
+}
+    /*{
         System.out.println("Полиномиальная функция не определенна.");
         return 0.0;
     }

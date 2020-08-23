@@ -8,10 +8,35 @@ public class ImplemPolynomial implements polynomial {
     private double left_a, right_b;
     private int n;
     private int[] c = new int[11]; //max-10 степень, следовательно,11 коэфф.+1 на запас
+   // double res1,res;
 
     /*
      *           КОНСТРУКТОР
      */
+
+    void getNumbers () throws ArrayIndexOutOfBoundsException{
+        System.out.println("Инициализация полинома...");
+        System.out.println("Введите интервал рассмотрения функции.");
+        Scanner scanner = new Scanner(System.in);
+        this.left_a = scanner.nextDouble();
+        this.right_b = scanner.nextDouble();
+        System.out.println("Введите наибольшую степень многочлена из max-возможной величины." +
+                "Максимальная степень многочлена равна 10.");
+        this.n = scanner.nextInt();
+
+        System.out.println("Замечательно! Правда сказать,мы еще не проверили введенные Вами данные,но " +
+                "нам необходимо,чтобы вы заполнили следующие коээфициэнты...");
+        System.out.println("Введите коэффициенты многочлена." +
+                "К примеру, c[0]-коэффициент,стоящий перед x в степени 0.");
+
+            for (int i = 0; i <= n; i++) {
+                System.out.print("c[" + i + "] = ");
+                c[i] = scanner.nextInt();
+                System.out.println();
+            }
+
+
+    }
     /*
     ImplemPolynomial() {
         System.out.println("Инициализация полинома...");
@@ -36,10 +61,13 @@ public class ImplemPolynomial implements polynomial {
         } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println("Проггер этой проги-даунич! :(");
         }
+
+
     }
 
      */
 
+    /*
     ImplemPolynomial(double left_a,double right_b){
         this.left_a=left_a;
         this.right_b=right_b;
@@ -114,6 +142,8 @@ public class ImplemPolynomial implements polynomial {
         }
         return true;
     }
+
+
 
     public void printBored() {
         System.out.println("Проверка пройдена." +
